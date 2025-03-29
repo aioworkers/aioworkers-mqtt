@@ -1,6 +1,6 @@
 import asyncio
 from collections import deque
-from typing import Any, Dict, Optional
+from typing import Any, Deque, Dict, Optional
 
 import paho.mqtt.client as mqtt
 from aioworkers.core.base import AbstractConnector
@@ -165,7 +165,7 @@ class Queue(Base, AbstractQueue):
     _queue: asyncio.Queue[mqtt.MQTTMessage]
 
     def __init__(self, *args, **kwargs):
-        self._topics = deque()
+        self._topics: Deque = deque()
         super().__init__(*args, **kwargs)
 
     def set_config(self, config):
