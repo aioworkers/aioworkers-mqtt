@@ -153,6 +153,7 @@ check_untyped_defs = true
 [[tool.mypy.overrides]]
 module = [
     "pytest",
+    "paho.*",
 ]
 ignore_missing_imports = true
 
@@ -162,7 +163,7 @@ features = [
     "dev-lint",
 ]
 [tool.hatch.envs.lint.scripts]
-typing = "mypy --install-types --non-interactive {args:aioworkers_mqtt tests}"
+typing = "mypy {args:aioworkers_mqtt tests}"
 style = [
     "ruff check {args:aioworkers_mqtt tests}",
     "ruff format --check --diff {args:aioworkers_mqtt tests}",
