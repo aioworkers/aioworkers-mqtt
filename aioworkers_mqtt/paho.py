@@ -76,11 +76,12 @@ class Base(AbstractConnector, FormattedEntity):
         qos: Optional[int] = None,
         retain: Optional[bool] = None,
     ):
-        data = self.encode(payload)
+        if payload not in (None, ""):
+            payload = self.encode(payload)
         assert self._connected.is_set()
         mi = self._client.publish(
             topic,
-            data,
+            payload,
             qos=self._qos if qos is None else qos,
             retain=self._retain if retain is None else retain,
         )

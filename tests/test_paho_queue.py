@@ -10,13 +10,13 @@ def config_yaml():
     return f"""
     queue:
         cls: aioworkers_mqtt.Queue
-        # host: 127.0.0.1
+        host: broker.emqx.io
         port: 1883
         client_id: w
-        # protocol: 5
+        protocol: 5
         qos: 2
         retain: false
-        topics: [{uuid4()}]
+        topics: [aioworkers/{uuid4()}]
         format: json
     """
 
