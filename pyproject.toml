@@ -70,6 +70,7 @@ include = [
 
 [tool.hatch.envs.default]
 features = [
+    "paho",
     "dev-test",
 ]
 [tool.hatch.envs.default.scripts]
