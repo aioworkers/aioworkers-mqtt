@@ -41,6 +41,14 @@ Features
 Install
 -------
 
+Use uv to add to your project (recommend):
+
+.. code-block:: bash
+
+    uv add aioworkers-mqtt[paho]
+
+or install with pip:
+
 .. code-block:: bash
 
     pip install aioworkers-mqtt[paho]
@@ -56,25 +64,39 @@ Add this to aioworkers config.yaml:
     queue:
       cls: aioworkers_mqtt.Queue
       host: localhost
-      port: port
+      port: 1883
       user: user
       password: ***
       qos: 1
-      retain: true
+      format: json
       topics:
         - a
         - b
 
     storage:
-      cls: aioworkers_mqtt.Queue
+      cls: aioworkers_mqtt.Storage
+      host: localhost
+      port: 1883
+      user: user
+      password: ***
+      qos: 1
+      retain: true
+      format: json
       prefix: room/device
 
 You can work with queue like this:
 
 .. code-block:: python
 
-    await context.queue.put({'a': 1})
+    await context.queue.put({"a": 1})
     d = await context.queue.get()
+
+and work with storage like this:
+
+.. code-block:: python
+
+    await context.storage.set("a", 1)
+    one = await context.storage.get("a")
 
 
 Run:
