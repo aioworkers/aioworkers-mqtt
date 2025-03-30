@@ -7,6 +7,10 @@ aioworkers-mqtt
 .. image:: https://github.com/aioworkers/aioworkers-mqtt/workflows/Tests/badge.svg
   :target: https://github.com/aioworkers/aioworkers-mqtt/actions?query=workflow%3ATests
 
+.. image:: https://codecov.io/gh/aioworkers/aioworkers-mqtt/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/aioworkers/aioworkers-mqtt
+  :alt: Coverage
+
 .. image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v0.json
   :target: https://github.com/charliermarsh/ruff
   :alt: Code style: ruff

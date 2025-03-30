@@ -58,3 +58,12 @@ jobs:
         if: ${{ matrix.coverage }}
         run: |
           hatch run coverage xml
+      - name: Upload coverage to Codecov
+        if: ${{ matrix.coverage && github.ref == 'refs/heads/main' }}
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
